@@ -3,25 +3,42 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-geist-sans: 'GeistSans', sans-serif;
+  --font-delicious-handrawn: 'Delicious Handrawn', cursive;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat);
+  scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.font-delicious {
+  font-family: var(--font-delicious-handrawn);
+}
+
+body {
+  font-style: normal;
+  font-weight: 100;
+}
+
+.scrollContainer {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.scrollContent {
+  display: flex;
+  animation: scroll 10s linear infinite;
+}
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
   }
 }
