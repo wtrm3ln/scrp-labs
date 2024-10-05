@@ -24,7 +24,7 @@ const About = () => {
         </li>
         <li className="flex items-center">
           <div className="w-4 h-0.5 bg-white mr-2" />
-          <span>We've got <strong>Surge of Creative Radical Potential</strong></span>
+          <span>We&apos;ve got <strong>Surge of Creative Radical Potential</strong></span>
         </li>
       </ul>
 
