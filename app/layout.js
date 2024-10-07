@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Delicious_Handrawn, Montserrat } from 'next/font/google'
 import Footer from "./components/footer"
+import Navbar from './components/navbar'
 
 const delicious = Delicious_Handrawn({
   weight: '400',
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
       <body
         className={`bg-primary ${montserrat.variable} ${delicious.variable} antialiased`}
       >
+        <Navbar />
         {children}
         <Footer />
       </body>

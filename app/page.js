@@ -6,7 +6,6 @@ import About from "./components/about";
 export default function Home() {
   return (
     <div>
-      <Navbar />
       <Hero />
       <Showcase />
       <About />

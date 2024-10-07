@@ -6,7 +6,7 @@ import Card from './card';
 const Showcase = () => {
   return (
     <div className="md:grid grid-cols-2 gap-4 p-4">
-        <div className='col-span-2 h-[80vh]'>
+        <div className='col-span-2 h-[60vh] md:h-[80vh]'>
 
             <Card
             tag="Shop now"
@@ -17,7 +17,7 @@ const Showcase = () => {
         </div>
 
       {/* Pixelated heart */}
-      <div className='h-[80vh]'>
+      <div className='h-[60vh] md:h-[80vh]'>
 
             <Card
             tag="Shop now"
@@ -27,7 +27,7 @@ const Showcase = () => {
         />
       </div>
 
-      <div className="grid grid-cols-2 h-[80vh] gap-4">
+      <div className="grid grid-cols-2 h-[60vh] md:h-[80vh] gap-4">
 
       <div className='col-span-2'>
 
