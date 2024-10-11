@@ -12,7 +12,7 @@ const Card = ({ tag, title, color, imageSrc }) => {
         className="rounded-lg"
       />
 
-        <div className="absolute top-2 left-2 bg-orange-500 text-white px-2 py-1 rounded inline-block mb-2">
+        <div className="absolute top-2 left-2 bg-primary rounded-full text-white px-2 py-1 inline-block mb-2">
           Shop now
         </div>
 

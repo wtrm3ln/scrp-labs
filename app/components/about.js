@@ -1,6 +1,43 @@
+'use client'
+import React, { useState } from 'react';
 import Image from 'next/image'
+import WavyLine from './waveLine';
+
+
+const ListItem = ({ text }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <li
+      className="flex flex-col"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="flex items-center">
+        <div className="w-4 h-0.5 bg-white mr-2" />
+        <span>
+          {text.prefix}
+          <div className="relative inline-block ml-1">
+            <strong className="font-bold">{text.strongText}</strong>
+            <div className={`absolute left-0 w-full ${isHovered ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
+              <WavyLine isVisible={isHovered} />
+            </div>
+          </div>
+        </span>
+      </div>
+    </li>
+  );
+};
+
 
 const About = () => {
+
+  const items = [
+    { prefix: 'We Are a Group of', strongText: 'Smart Creative Resourceful People' },
+    { prefix: 'SCRP is where', strongText: 'Supreme Creativity Reaches Peak' },
+    { prefix: "We've got", strongText: 'Surge of Creative Radical Potential' },
+  ];
+
   return (
     <div className="text-white py-10">
       <div className="md:flex max-w-6xl px-5 md:px-0 mx-auto justify-between items-start mb-4">
@@ -13,19 +50,10 @@ const About = () => {
         </div>
       </div>
 
-      <ul className="my-6 space-y-2 px-5 md:px-0 max-w-6xl mx-auto">
-        <li className="flex items-center">
-          <div className="w-4 h-0.5 bg-white mr-2" />
-          <span>We Are a Group of <strong>Smart Creative Resourceful People</strong></span>
-        </li>
-        <li className="flex items-center">
-          <div className="w-4 h-0.5 bg-white mr-2" />
-          <span>SCRP is where <strong>Supreme Creativity Reaches Peak</strong></span>
-        </li>
-        <li className="flex items-center">
-          <div className="w-4 h-0.5 bg-white mr-2" />
-          <span>We&apos;ve got <strong>Surge of Creative Radical Potential</strong></span>
-        </li>
+      <ul className="my-6 space-y-4 cursor-default px-5 md:px-0 max-w-6xl mx-auto">
+        {items.map((item, index) => (
+        <ListItem key={index} text={item} />
+      ))}
       </ul>
 
       
