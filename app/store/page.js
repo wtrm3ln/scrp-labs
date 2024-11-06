@@ -33,7 +33,7 @@ export default function Store () {
     return(
     <div>
         <div className="mt-36 flex justify-center">
-            <p className="text-xl rotate-2 text-white font-delicious">"Mom can I have your credit card"</p>
+            <p className="text-xl rotate-2 text-white font-delicious">&quot;Mom can I have your credit card&quot;</p>
         </div>
 
     <div className="md:grid grid-cols-2 gap-12 p-12">
