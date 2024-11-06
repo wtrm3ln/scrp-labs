@@ -26,9 +26,9 @@ const Navbar = () => {
   const [isGetInTouchHovered, setIsGetInTouchHovered] = useState(false);
 
   const menuItems = [
-    { href: "/", text: "Home" },
+    { href: "#services", text: "Services" },
     { href: "/about", text: "About" },
-    { href: "/services", text: "Shop" },
+    { href: "/store", text: "Store" },
     { href: "/projects", text: "Projects" },
   ];
 
@@ -45,7 +45,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex w-full justify-between items-center space-x-2">
+        <div className="hidden md:flex w-full justify-between items-center font-medium space-x-2">
           {menuItems.slice(0, 3).map((item, index) => (
             <MenuItem key={index} {...item} />
           ))}

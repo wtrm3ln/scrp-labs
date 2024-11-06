@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const Card = ({ tag, title, color, imageSrc }) => {
+const ShowcaseCard = ({ tag, title, color, imageSrc }) => {
   return (
     <div className={`my-6 bg-dark h-full w-full relative rounded-lg p-2`}>
       <Image
@@ -30,4 +30,4 @@ const Card = ({ tag, title, color, imageSrc }) => {
   );
 };
 
-export default Card;
+export default ShowcaseCard;

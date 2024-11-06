@@ -29,6 +29,35 @@ const ListItem = ({ text }) => {
   );
 };
 
+const ServicesDisplay = ({ number, text, subtext }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="text-center flex flex-col justify-center items-center my-12"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="w-16 h-16 rounded-full bg-white text-primary font-delicious flex items-center justify-center text-5xl font-bold mb-2">
+        {number}
+      </div>
+
+      <div className="relative inline-block w-full mb-3">
+        <strong className="font-bold md:w-48 font-delicious text-xl">{text}</strong>
+        <div
+          className={`absolute left-0 w-full ${
+            isHovered ? 'opacity-100' : 'opacity-0'
+          } transition-opacity duration-300`}
+        >
+          <WavyLine isVisible={isHovered} />
+        </div>
+      </div>
+      
+      <p className="md:w-64">{subtext}</p>
+    </div>
+  );
+};
+
 
 const About = () => {
 
@@ -37,6 +66,13 @@ const About = () => {
     { prefix: 'SCRP is where', strongText: 'Supreme Creativity Reaches Peak' },
     { prefix: "We've got", strongText: 'Surge of Creative Radical Potential' },
   ];
+
+  const services = [
+    { number: 1, text: "FDM 3D Printing & 3D Modelling" , subtext: "End-to-End 3D Modelling & Made- to-Order Printing Solutions "},
+    { number: 2, text: "Branding & Creative Direction", subtext: "Creative Branding Solutions & Design Consultation" },
+    { number: 3, text: "Design Workshops", subtext: "Tailor Made Design Workshops for various Design skills & Softwares" },
+    { number: 4, text: "Visual Design", subtext: "Graphic Design & Visualisation solutions for your unique needs" }
+];
 
   return (
     <div className="text-white py-10">
@@ -76,9 +112,9 @@ const About = () => {
 
       <div className='max-w-6xl mt-28 mx-auto text-center'>
 
-        <p className="text-3xl mb-20">A new-age Creative Space run by young adults.</p>
+        <p className="text-3xl font-medium mb-20">A new-age Creative Space run by young adults.</p>
 
-        <p className="text-3xl">What do we do?</p>
+        <p className="text-3xl font-medium">What do we do?</p>
 
         <div className="relative flex items-center justify-center mt-6 mb-36">
           <Image src='/star1.png' width='100' height='20'/>
@@ -88,24 +124,28 @@ const About = () => {
           <Image src='/star2.png' width='160' height='20'/>
         </div>
 
-        <div className="md:flex justify-between md:space-x-20 mb-8">
-          {[
-            { number: 1, text: "Curated Custom 3D articles" },
-            { number: 2, text: "3D print your very own models" },
-            { number: 3, text: "Learn the basics of 3D Printing" }
-          ].map((item) => (
-            <div key={item.number} className="text-center flex md:flex-col justify-center items-center my-12">
-              <div className="w-16 h-16 rounded-full bg-white text-primary font-delicious flex items-center justify-center text-5xl font-bold mx-auto mb-2">
-                {item.number}
-              </div>
-              <p className="md:w-48 font-delicious text-3xl mx-auto">{item.text}</p>
-            </div>
-          ))}
+        <div>
+          <p className="text-xl font-medium mb-20 max-w-3xl mx-auto">SCRP is a Run-by-Designers creative kitchen. 
+            We love cooking creatives & products that are suited to your own unique identity. We believe in collaborations that have a lasting impact.
+            <br /><br />We cater to a large array of design verticals right from customised 3D Prints, Brand Identities to Creative Direction for your brand  
+          </p>
         </div>
 
-        <a href='/' className="bg-white hover:bg-gray-100 text-primary text-xl font-medium px-5 py-2 rounded-full shadow-lg">
-            Explore our Services
-        </a>
+        <div id="services" className='flex flex-col items-center gap-3 pt-28'>
+              <Image src="/logo.svg" width={80} height={10} alt="Logo" />
+              <p className="md:w-48 font-delicious text-3xl mx-auto">Our Services</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 justify-center justify-items-center mb-8">
+          {services.map((service) => (
+            <ServicesDisplay
+              key={service.number}
+              number={service.number}
+              text={service.text}
+              subtext={service.subtext}
+            />
+          ))}
+        </div>
 
       </div>
 
