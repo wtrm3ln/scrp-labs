@@ -1,34 +1,10 @@
 import HoverCard from "../components/Cards/HoverCard";
 import Link from "next/link";
+import { getAllCategories } from "../contentful/contentful";
 
-export default function Store () {
-
-    const products = [
-        {
-          tag: "Shop now",
-          title: "Get your Sneakers Flaming!",
-          color: "text-blue-300",
-          imageSrc: "/product1.png",
-        },
-        {
-          tag: "Shop now",
-          title: "Get your Sneakers Flaming!",
-          color: "text-green-500",
-          imageSrc: "/product2.png",
-        },
-        {
-          tag: "Shop now",
-          title: "Get your Sneakers Flaming!",
-          color: "text-blue-300",
-          imageSrc: "/product3.png",
-        },
-        {
-          tag: "Shop now",
-          title: "Get your Sneakers Flaming!",
-          color: "text-blue-300",
-          imageSrc: "/product4.png",
-        },
-      ];
+export default async function Store () {
+  console.timeLog("fetching categories")
+  const categories = await getAllCategories();
 
     return(
     <div>
@@ -37,13 +13,14 @@ export default function Store () {
         </div>
 
     <div className="md:grid grid-cols-2 gap-12 p-12">
-      {products.map((product, index) => (
+      {categories.map((category, index) => (
         <div key={index} className="h-[60vh] md:h-[50vh]">
           <HoverCard
-            tag={product.tag}
-            title={product.title}
-            color={product.color}
-            imageSrc={product.imageSrc}
+            tag={category.tag}
+            title={category.name}
+            color={category.color}
+            imageSrc={category.featuredProductImage}
+            slug={category.slug}
           />
         </div>
       ))}

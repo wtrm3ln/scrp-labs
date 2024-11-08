@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
-const ShowcaseCard = ({ tag, title, color, imageSrc }) => {
+const ShowcaseCard = ({ tag, title, color, imageSrc, slug }) => {
   return (
     <div className={`my-6 bg-dark h-full w-full relative rounded-lg p-2`}>
       <Image
@@ -12,9 +13,9 @@ const ShowcaseCard = ({ tag, title, color, imageSrc }) => {
         className="rounded-lg"
       />
 
-        <div className="absolute top-2 left-2 bg-primary rounded-full text-white px-2 py-1 inline-block mb-2">
+        <Link href={`/products/${slug}`} className="absolute top-2 left-2 bg-primary rounded-full text-white px-2 py-1 inline-block mb-2">
           Shop now
-        </div>
+        </Link>
 
       <div className="absolute bottom-2 left-2">
 

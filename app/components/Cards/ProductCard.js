@@ -1,7 +1,7 @@
-import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
-const ProductCard = ({ productName, price, imageSrc }) => {
+const ProductCard = ({ productName, price, imageSrc, slug }) => {
   return (
     <div className="relative p-1 group">
       {/* Image Section */}
@@ -19,6 +19,7 @@ const ProductCard = ({ productName, price, imageSrc }) => {
       <div className="mt-4 font-medium text-white">
         <h3 className="text-lg">{productName}</h3>
         <p className="text-xl mt-1">₹{price}</p>
+        <Link href={`/products/${slug}`}>Shop now</Link>
       </div>
     </div>
   );

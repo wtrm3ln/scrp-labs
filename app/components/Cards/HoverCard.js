@@ -1,24 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
-const HoverCard = ({ tag, title, color, imageSrc }) => {
+const HoverCard = ({ tag, title, color, imageSrc, slug }) => {
   return (
-    <div className="my-6 bg-dark h-full w-full relative rounded-lg overflow-hidden group">
-      <div className="relative w-full h-full transition-transform duration-500 transform group-hover:scale-105">
+    <Link href={`/store/${slug}`} className="my-6 bg-dark h-full w-full relative rounded-lg overflow-hidden group">
+      <div className="relative w-full overflow-hidden rounded-lg h-full">
         <Image
           src={imageSrc}
           alt={title}
           layout="fill"
           objectFit="cover"
-          className="rounded-lg grayscale group-hover:grayscale-0 transition-all duration-500"
+          className="grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500 transform"
         />
       </div>
 
-      <div className="absolute top-2 left-2 bg-primary rounded-full text-white px-2 py-1 inline-block mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        Shop now
-      </div>
-
-      <div className="absolute bottom-2 left-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+      <div className="absolute bottom-3 left-3 transition-opacity duration-300 text-white">
         <div className="text-white">
           {tag}
         </div>
@@ -26,7 +23,7 @@ const HoverCard = ({ tag, title, color, imageSrc }) => {
           {title}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

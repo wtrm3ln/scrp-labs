@@ -5,7 +5,7 @@ const Footer = () => {
       <footer className='mt-20'>
 
         <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">Scrp Labs</h3>
@@ -68,16 +68,6 @@ const Footer = () => {
             </button>
           </form>
           </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-700 my-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; 2024 Scrp Labs. All rights reserved.</p>
-          <ul className="flex space-x-4 mt-4 md:mt-0">
-            <li><a href="#" className="hover:text-blue-400">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-blue-400">Terms of Service</a></li>
-            <li><a href="#" className="hover:text-blue-400">Cookie Policy</a></li>
-          </ul>
         </div>
       </div>
 

@@ -1,47 +1,19 @@
-import React from 'react';
-import Image from 'next/image';
 import ShowcaseCard from './Cards/ShowcaseCard';
 import Link from 'next/link'
 
-const cardData = [
-  {
-    tag: "Shop now",
-    title: "Get your Sneakers Flaming!",
-    color: "text-blue-300",
-    imageSrc: "/product1.png"
-  },
-  {
-    tag: "Shop now",
-    title: "Get your Sneakers Flaming!",
-    color: "text-green-500",
-    imageSrc: "/product2.png"
-  },
-  {
-    tag: "Shop now",
-    title: "Get your Sneakers Flaming!",
-    color: "text-blue-300",
-    imageSrc: "/product3.png"
-  },
-  {
-    tag: "Shop now",
-    title: "Get your Sneakers Flaming!",
-    color: "text-blue-300",
-    imageSrc: "/product4.png"
-  },
-];
-
-const Showcase = () => {
+const Showcase = ({products}) => {
   return (
     <div>
       {/* Horizontal Scrollable Section */}
       <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory pl-12 py-12 space-x-12 scroll-px-4 hide-scrollbar">
-        {cardData.map((card, index) => (
+        {products.map((product, index) => (
           <div key={index} className="flex-shrink-0 w-full md:w-[60vw] h-[60vh] md:h-[80vh] snap-center">
             <ShowcaseCard
-              tag={card.tag}
-              title={card.title}
-              color={card.color}
-              imageSrc={card.imageSrc}
+              tag={product.fields.tagline || "Shop now"}
+              title={product.fields.name}
+              color={product.fields.color || "text-blue-300"}
+              imageSrc={`https:${product.fields.featuredProductImage.fields.file.url}`}
+              slug={product.fields.slug}
             />
           </div>
         ))}

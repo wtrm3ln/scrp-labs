@@ -29,7 +29,7 @@ const ListItem = ({ text }) => {
   );
 };
 
-const ServicesDisplay = ({ number, text, subtext }) => {
+const ServicesDisplay = ({ imageSrc, text, subtext }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -38,8 +38,8 @@ const ServicesDisplay = ({ number, text, subtext }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-16 h-16 rounded-full bg-white text-primary font-delicious flex items-center justify-center text-5xl font-bold mb-2">
-        {number}
+      <div className="flex items-center justify-center mb-2">
+        <Image src={imageSrc} width="150" height="50" />
       </div>
 
       <div className="relative inline-block w-full mb-3">
@@ -68,10 +68,10 @@ const About = () => {
   ];
 
   const services = [
-    { number: 1, text: "FDM 3D Printing & 3D Modelling" , subtext: "End-to-End 3D Modelling & Made- to-Order Printing Solutions "},
-    { number: 2, text: "Branding & Creative Direction", subtext: "Creative Branding Solutions & Design Consultation" },
-    { number: 3, text: "Design Workshops", subtext: "Tailor Made Design Workshops for various Design skills & Softwares" },
-    { number: 4, text: "Visual Design", subtext: "Graphic Design & Visualisation solutions for your unique needs" }
+    { number: 1, text: "FDM 3D Printing & 3D Modelling" , subtext: "End-to-End 3D Modelling & Made- to-Order Printing Solutions ", imageSrc: '/services/1.png'},
+    { number: 2, text: "Branding & Creative Direction", subtext: "Creative Branding Solutions & Design Consultation", imageSrc: '/services/2.png' },
+    { number: 3, text: "Design Workshops", subtext: "Tailor Made Design Workshops for various Design skills & Softwares", imageSrc: '/services/3.png' },
+    { number: 4, text: "Visual Design", subtext: "Graphic Design & Visualisation solutions for your unique needs", imageSrc: '/services/4.png' }
 ];
 
   return (
@@ -140,7 +140,7 @@ const About = () => {
           {services.map((service) => (
             <ServicesDisplay
               key={service.number}
-              number={service.number}
+              imageSrc={service.imageSrc}
               text={service.text}
               subtext={service.subtext}
             />
