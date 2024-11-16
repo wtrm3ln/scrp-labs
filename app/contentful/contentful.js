@@ -9,12 +9,26 @@ export async function getProducts() {
   try {
     const entries = await client.getEntries({
       content_type: 'pageProduct',
-      select: 'fields.name, fields.price, fields.slug, fields.featuredProductImage',
+      select: 'fields.name, fields.price, fields.slug, fields.featuredProductImage, fields.icon'
     });
     console.log(entries.items)
     return entries.items;
   } catch (error) {
     console.error('Error fetching products:', error.response ? error.response.data : error);
+    return [];
+  }
+}
+
+export async function getProjects() {
+  try {
+    const entries = await client.getEntries({
+      content_type: 'project',
+      select: 'fields.projectName, fields.projectBrief, fields.slug, fields.projectImage, fields.tags'
+    });
+    console.log(entries.items)
+    return entries.items;
+  } catch (error) {
+    console.error('Error fetching projects:', error.response ? error.response.data : error);
     return [];
   }
 }
@@ -32,6 +46,21 @@ export async function getProductBySlug(slug) {
     return null;
   }
 }
+
+export async function getProjectBySlug(slug) {
+  try {
+    const res = await client.getEntries({
+      content_type: 'project', // Ensure this matches your Contentful content type
+      'fields.slug': slug, // Adjust this if slug is stored differently
+    });
+    
+    return res.items[0] || null;
+  } catch (error) {
+    console.error('Error fetching Projects:', error.response ? error.response.data : error);
+    return null;
+  }
+}
+
 
 export async function getAllCategories() {
   try {

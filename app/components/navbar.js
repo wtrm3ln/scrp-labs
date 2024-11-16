@@ -37,8 +37,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="text-white fixed bg-primary z-10 top-0 left-0 right-0">
-      <div className="container max-w-4xl mx-auto flex justify-between items-center">
+    <nav className="text-white fixed bg-primary z-[99] top-0 left-0 right-0">
+      <div className="container max-w-[90vw] py-2 md:py-0 md:max-w-4xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <a href="/" className="flex items-center md:hidden">
           <Image src="/logo.svg" width={80} height={10} alt="Logo" />

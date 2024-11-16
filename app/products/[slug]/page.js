@@ -71,7 +71,7 @@ export default async function Page({ params }) {
     <div className='text-xl bg-dark pt-24'>
   
   {/* Featured Image */}
-  <div className='rounded-xl mx-12'>
+  <div className='mx-2 md:mx-12'>
     <div className='md:grid grid-cols-3'>
       <div className='col-span-2'>
         <Image
@@ -79,10 +79,10 @@ export default async function Page({ params }) {
         alt={name}
         width={featuredProductImage.fields.file.details.image.width}
         height={featuredProductImage.fields.file.details.image.height}
-        className="rounded-3xl object-cover h-[70vh] "
+        className="rounded-lg md:rounded-3xl object-cover h-[70vh] "
       />
 
-      <div className='grid grid-cols-4 my-3 gap-3'>
+      <div className='grid grid-cols-4 gap-1 my-1 md:my-3 md:gap-3'>
         {productImages?.map((image, index) => (
               <Image
                 key={index}
@@ -90,7 +90,7 @@ export default async function Page({ params }) {
                 alt={`${name} image ${index + 1}`}
                 width={image.fields.file.details.image.width}
                 height={image.fields.file.details.image.height}
-                className="rounded-lg w-full h-36 object-cover"
+                className="rounded-lg w-full h-20 md:h-36 object-cover"
               />
             ))}
       </div>
@@ -105,18 +105,21 @@ export default async function Page({ params }) {
 
           {/* Description and Price */}
           <p className='mb-4 text-sm'>{description}</p>
-          <p className='text-xl font-semibold mb-6'> ₹{price}</p>
+          <div className='flex gap-3 items-center'>
+          <p className='text-xl font-semibold'> ₹{price}</p>
+          <a className='bg-white text-primary font-bold p-2 rounded-full'>Shop Now</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div className="relative px-12 my-24 text-white space-y-20">
+  <div className="relative p-2 md:px-12 md:my-24 text-white space-y-20">
     
     <ol>
       <li className='flex items-center gap-3'> <Tick />Multiple Colour Options </li>
       <li className='flex items-center gap-3'> <Tick />Customisable</li>
-      <li className='flex items-center gap-3'> <Tick />This item is non-refundable. However, we do replace defects only with start-to-end unboxing videos given under 24 hours after the delivery</li>
+      <li className='md:flex items-center gap-3'> <Tick className=''/>This item is non-refundable. <br></br>However, we do replace defects only with start-to-end unboxing videos given under 24 hours after the delivery</li>
     </ol>
 
     <p>Our shopping process is slightly different!</p> 

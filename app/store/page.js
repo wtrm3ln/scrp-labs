@@ -12,9 +12,9 @@ export default async function Store () {
             <p className="text-xl rotate-2 text-white font-delicious">&quot;Mom can I have your credit card&quot;</p>
         </div>
 
-    <div className="md:grid grid-cols-2 gap-12 p-12">
+    <div className="md:grid grid-cols-2 gap-12 p-2 md:p-12">
       {categories.map((category, index) => (
-        <div key={index} className="h-[60vh] md:h-[50vh]">
+        <div key={index} className="h-[40vh] md:h-[50vh]">
           <HoverCard
             tag={category.tag}
             title={category.name}

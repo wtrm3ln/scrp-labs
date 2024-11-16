@@ -19,12 +19,6 @@ const ShowcaseCard = ({ tag, title, color, imageSrc, slug }) => {
 
       <div className="absolute bottom-2 left-2">
 
-      <div className="text-white">
-        {tag} {/* Display the tag dynamically */}
-      </div>
-      <div className={`${color} text-lg font-bold`}>
-        {title} {/* Display the title dynamically */}
-      </div>
         
       </div>
     </div>

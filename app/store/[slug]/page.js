@@ -42,7 +42,7 @@ export default async function Page({ params }) {
 
   return (
     <div className='text-xl pt-24'>   
-      <div className="md:grid grid-cols-2 gap-12 p-12">
+      <div className="md:grid grid-cols-2 gap-4 md:gap-12 p-2 md:p-12">
       {products.map((product, index) => (
         <div key={index}>
           <ProductCard 
