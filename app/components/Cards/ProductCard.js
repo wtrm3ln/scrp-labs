@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const ProductCard = ({ productName, price, imageSrc, slug }) => {
+const ProductCard = ({ emoji, productName, price, imageSrc, slug }) => {
   return (
-    <Link href={`/products/${slug}`} className="relative p-1 group">
+    <Link href={`/products/${slug}`} className="relative group text-white">
       {/* Image Section */}
-      <div className="relative w-full h-64 overflow-hidden rounded-lg">
+      <div className="relative w-full min-h-64 md:aspect-[5/3] overflow-hidden rounded-lg">
         <Image
           src={imageSrc}
           alt={productName}
@@ -16,9 +16,9 @@ const ProductCard = ({ productName, price, imageSrc, slug }) => {
       </div>
 
       {/* Product Details */}
-      <div className="mt-4 font-medium text-white">
-        <h3 className="text-lg">{productName}</h3>
-        <p className="text-xl mt-1">₹{price}</p>
+      <div className="mt-2 text-2xl font-medium md:flex justify-between items-end gap-6">
+        <span className='flex md:text-4xl'><span>{emoji}</span><h3 className="opacity-90">{productName}</h3></span>
+        <p className="text-2xl md:mt-1 font-mono whitespace-nowrap">Rs. {price}.00</p>
       </div>
     </Link>
   );

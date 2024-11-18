@@ -9,7 +9,7 @@ export async function getProducts() {
   try {
     const entries = await client.getEntries({
       content_type: 'pageProduct',
-      select: 'fields.name, fields.price, fields.slug, fields.featuredProductImage, fields.icon'
+      select: 'fields.name, fields.emoji, fields.description, fields.price, fields.slug, fields.featuredProductImage, fields.icon'
     });
     console.log(entries.items)
     return entries.items;
@@ -96,7 +96,7 @@ export async function getCategoryEntries(categoryId) {
     console.log('Fetching category entries for category ID:', categoryId);
     const entries = await client.getEntries({
       content_type: 'pageProduct',
-      select: 'fields.name, fields.price, fields.slug, fields.featuredProductImage',
+      select: 'fields.name, fields.emoji, fields.price, fields.slug, fields.featuredProductImage',
       'fields.category.sys.id': categoryId,
     });
     console.log('Fetched category entries:', entries);

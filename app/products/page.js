@@ -8,27 +8,26 @@ export default async function Store () {
 
     return(
     <div>
-        <div className="mt-36 flex justify-between items-center p-12">
+        <div className="mt-36 flex justify-between items-center p-2 md:p-12">
 
-          <Link href="/store" className="flex flex-col items-center">
+          <Link href="/store" className="hidden md:flex flex-col items-center">
             <Image src="/utilities/back.svg" width={50} height={200}/>
           <p className="text-xl rotate-2 text-white font-medium">Back</p>
           </Link>
 
-          <p className="text-3xl rotate-2 text-white font-delicious">Here is everything we have</p>
+          <p className="text-4xl rotate-2 text-center w-full text-white font-delicious">Here is everything we have</p>
 
-          <div className="flex flex-col items-center">
-          <Image src="/utilities/filter.svg" width={30} height={200}/>
-          <p className="text-xl rotate-2 text-white font-medium">Filters</p>
+          <div>
           </div>
 
         </div>
 
-    <div className="md:grid grid-cols-2 gap-12 p-12">
+    <div className="md:grid grid-cols-2 gap-x-12 gap-y-6 md:space-y-0 space-y-6 p-4 md:p-12">
       {products.map((product, index) => (
         <div key={index}>
           <ProductCard 
             productName={product.fields.name} 
+            emoji={product.fields.emoji} 
             price={product.fields.price}
             imageSrc={`https:${product.fields.featuredProductImage.fields.file.url}`}
             slug={product.fields.slug}
@@ -37,10 +36,7 @@ export default async function Store () {
       ))}
       
       <div className="col-span-2 flex flex-col items-center justify-center my-12">
-      <div className="mt-20 flex text-center max-w-3xl justify-center -mb-10">
-            <p className="text-xl text-white font-delicious">Whoops! You&apos;ve reached  the end!</p>
-      </div>
-      <Image src="/utilities/scrollend.png" width={250} height={200}/>
+      <Image src="/utilities/scrollend.svg" width={400} height={200}/>
       </div>
     </div>
 

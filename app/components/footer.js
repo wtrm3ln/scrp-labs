@@ -7,28 +7,10 @@ const Footer = () => {
         <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Scrp Labs</h3>
-            <p className="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.</p>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-blue-400"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-blue-400"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-blue-400"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-blue-400"><Linkedin size={20} /></a>
-            </div>
+          <div className='md:col-span-2 flex items-center justify-center'>
+            <h3 className="text-5xl md:text-[150px] whitespace-nowrap text-white font-delicious">Scrp Labs</h3>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-blue-400">Home</a></li>
-              <li><a href="#" className="hover:text-blue-400">About Us</a></li>
-              <li><a href="#" className="hover:text-blue-400">Services</a></li>
-              <li><a href="#" className="hover:text-blue-400">Products</a></li>
-              <li><a href="#" className="hover:text-blue-400">Contact</a></li>
-            </ul>
-          </div>
 
           {/* Contact Info */}
           <div>
@@ -47,6 +29,13 @@ const Footer = () => {
                 <span>123 Street Name, City, Country</span>
               </li>
             </ul>
+
+            <div className="flex space-x-4 mt-10">
+              <a href="#" className="hover:text-black/70"><Facebook size={30} /></a>
+              <a href="#" className="hover:text-black/70"><Twitter size={30} /></a>
+              <a href="#" className="hover:text-black/70"><Instagram size={30} /></a>
+              <a href="#" className="hover:text-black/70"><Linkedin size={30} /></a>
+            </div>
           </div>
 
           {/* Newsletter Signup */}

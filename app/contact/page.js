@@ -1,10 +1,11 @@
 import Image from "next/image";
+import UnderlineText from "../components/underlineText";
 
 export default function Contact () {
     return(
     <div className="flex flex-col items-center justify-center space-y-12 bg-[#484846] mt-24 text-white py-16 px-4 rounded-lg">
       <Image
-        src="/connect.png"
+        src="/connect.svg"
         alt="WhatsApp Icon"
         width={200}
         height={20}
@@ -23,7 +24,7 @@ export default function Contact () {
               className="inline-block h-36 object-contain"
             />
           </div>
-          <p className="text-lg font-medium">scrp.labs@connect.com</p>
+          <p className="text-lg font-medium">scrp.labs@gmail.com</p>
         </div>
 
         {/* WhatsApp Icon and Number */}
@@ -42,8 +43,8 @@ export default function Contact () {
       </div>
 
       {/* Note */}
-      <p className="text-center text-sm mt-4">
-        Give us some time and we will respond to you <span className="font-bold">ASAP!</span>
+      <p className="text-center text-xl mt-4">
+        Give us some time and we will respond to you <UnderlineText text={"ASAP!"} thickness={"20"}/>
       </p>
     </div>
   );

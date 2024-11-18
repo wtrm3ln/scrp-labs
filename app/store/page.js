@@ -9,12 +9,12 @@ export default async function Store () {
     return(
     <div>
         <div className="mt-36 flex justify-center">
-            <p className="text-xl rotate-2 text-white font-delicious">&quot;Mom can I have your credit card&quot;</p>
+            <p className="text-4xl rotate-2 text-white font-delicious w-full text-center ">&quot;Mom can I have your credit card&quot;</p>
         </div>
 
     <div className="md:grid grid-cols-2 gap-12 p-2 md:p-12">
       {categories.map((category, index) => (
-        <div key={index} className="h-[40vh] md:h-[50vh]">
+        <div key={index} className="h-[40vh] xl:h-[50vh]">
           <HoverCard
             tag={category.tag}
             title={category.name}
@@ -30,7 +30,7 @@ export default async function Store () {
           View All Products
         </Link>
       <div className="my-20 flex text-center max-w-3xl justify-center">
-            <p className="text-xl text-white font-delicious">Your mind is unique & so are your ideas! Looking for something different exclusively made for you? <br></br><br></br>Ah- We love it!  Lets get started</p>
+            <p className="text-4xl text-white font-delicious">Your mind is unique & so are your ideas! Looking for something different exclusively made for you? <br></br><br></br>Ah- We love it!  Lets get started</p>
         </div>
         <a className="bg-white text-primary text-xl font-semibold px-5 py-2 rounded-full shadow-lg">
           Contact us

@@ -42,6 +42,11 @@ export default async function Page({ params }) {
 
   return (
     <div className='text-xl pt-24'>   
+
+      <div className="flex justify-center">
+            <p className="text-4xl rotate-2 text-white font-delicious">{category.name}</p>
+        </div>
+
       <div className="md:grid grid-cols-2 gap-4 md:gap-12 p-2 md:p-12">
       {products.map((product, index) => (
         <div key={index}>
@@ -50,15 +55,13 @@ export default async function Page({ params }) {
             price={product.fields.price}
             imageSrc={`https:${product.fields.featuredProductImage.fields.file.url}`}
             slug={product.fields.slug}
+            emoji={product.fields.emoji}
           />
         </div>
       ))}
       
       <div className="col-span-2 flex flex-col items-center justify-center my-12">
-      <div className="mt-20 flex text-center max-w-3xl justify-center -mb-10">
-            <p className="text-xl text-white font-delicious">Whoops! You&apos;ve reached  the end!</p>
-      </div>
-      <Image src="/utilities/scrollend.png" width={250} height={200}/>
+      <Image src="/utilities/scrollend.svg" width={400} height={200}/>
       </div>
     </div>
     </div>

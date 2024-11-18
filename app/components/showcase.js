@@ -20,6 +20,17 @@ const Showcase = ({ products }) => {
     setScrollProgress(progress);
   };
 
+  const scrollHorizontally = (direction) => {
+    const container = containerRef.current;
+    if (container) {
+      const scrollAmount = container.offsetWidth; // Scroll by the visible width
+      container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   useEffect(() => {
     const container = containerRef.current;
     container.addEventListener('scroll', handleScroll);
@@ -65,59 +76,61 @@ const Showcase = ({ products }) => {
         </div>
       )}
 
-{products[currentCardIndex]?.fields.icon?.fields.file?.url && (
-        <div
-          className="absolute bottom-16 left-10 md:left-36 transform z-10"
-          style={getIconStyle(scrollProgress < 0.5, scrollProgress < 0.5)}
-        >
-          <img
-            src={`https:${products[currentCardIndex].fields.icon.fields.file.url}`}
-            className="w-32 h-32"
-            alt="Product Icon 1"
-          />
-        </div>
-      )}
+    {products[currentCardIndex]?.fields.icon?.fields.file?.url && (
+            <div
+              className="absolute bottom-16 left-10 md:left-36 transform z-10"
+              style={getIconStyle(scrollProgress < 0.5, scrollProgress < 0.5)}
+            >
+              <img
+                src={`https:${products[currentCardIndex].fields.icon.fields.file.url}`}
+                className="w-32 h-32"
+                alt="Product Icon 1"
+              />
+            </div>
+          )}
 
-      {products[currentCardIndex + 1]?.fields.icon?.fields.file?.url && (
-        <div
-          className="absolute bottom-16 left-10 md:left-36 transform z-10"
-          style={getIconStyle(scrollProgress >= 0.5, scrollProgress >= 0.5)}
-        >
-          <img
-            src={`https:${products[currentCardIndex + 1].fields.icon.fields.file.url}`}
-            className="w-32 h-32"
-            alt="Product Icon 2"
-          />
-        </div>
-      )}
+          {products[currentCardIndex + 1]?.fields.icon?.fields.file?.url && (
+            <div
+              className="absolute bottom-16 left-10 md:left-36 transform z-10"
+              style={getIconStyle(scrollProgress >= 0.5, scrollProgress >= 0.5)}
+            >
+              <img
+                src={`https:${products[currentCardIndex + 1].fields.icon.fields.file.url}`}
+                className="w-32 h-32"
+                alt="Product Icon 2"
+              />
+            </div>
+          )}
 
-{products[currentCardIndex]?.fields.icon?.fields.file?.url && (
-        <div
-          className="absolute bottom-16 left-2/3 transform -translate-x-1/2 z-10"
-          style={getIconStyle(scrollProgress < 0.5, scrollProgress < 0.5)}
-        >
-          <img
-            src={`https:${products[currentCardIndex].fields.icon.fields.file.url}`}
-            className="w-32 h-32"
-            alt="Product Icon 1"
-          />
-        </div>
-      )}
+    {products[currentCardIndex]?.fields.icon?.fields.file?.url && (
+            <div
+              className="absolute bottom-16 left-2/3 transform -translate-x-1/2 z-10"
+              style={getIconStyle(scrollProgress < 0.5, scrollProgress < 0.5)}
+            >
+              <img
+                src={`https:${products[currentCardIndex].fields.icon.fields.file.url}`}
+                className="w-32 h-32"
+                alt="Product Icon 1"
+              />
+            </div>
+          )}
 
-      {products[currentCardIndex + 1]?.fields.icon?.fields.file?.url && (
-        <div
-          className="absolute bottom-16 left-2/3 transform -translate-x-1/2 z-10"
-          style={getIconStyle(scrollProgress >= 0.5, scrollProgress >= 0.5)}
-        >
-          <img
-            src={`https:${products[currentCardIndex + 1].fields.icon.fields.file.url}`}
-            className="w-32 h-32"
-            alt="Product Icon 2"
-          />
-        </div>
-      )}
+          {products[currentCardIndex + 1]?.fields.icon?.fields.file?.url && (
+            <div
+              className="absolute bottom-16 left-2/3 transform -translate-x-1/2 z-10"
+              style={getIconStyle(scrollProgress >= 0.5, scrollProgress >= 0.5)}
+            >
+              <img
+                src={`https:${products[currentCardIndex + 1].fields.icon.fields.file.url}`}
+                className="w-32 h-32"
+                alt="Product Icon 2"
+              />
+            </div>
+          )}
 
       {/* Horizontal Scrollable Section */}
+
+      <div className='relative'>
       <div
         ref={containerRef}
         className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory p-2 py-12 space-x-3 md:p-12 md:space-x-12 scroll-px-4 hide-scrollbar"
@@ -125,7 +138,7 @@ const Showcase = ({ products }) => {
         {products.map((product, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[90vw] md:w-[60vw] h-[60vh] md:h-[80vh] snap-center"
+            className="flex-shrink-0 w-[90vw] md:w-[70vw] h-[60vh] xl:h-[80vh] snap-center"
           >
             <ShowcaseCard
               tag={product.fields.tagline || 'Shop now'}
@@ -138,8 +151,30 @@ const Showcase = ({ products }) => {
         ))}
       </div>
 
+      {/* Left Arrow */}
+      <div className='z-[11] absolute bg-dark rounded-full md:bottom-0 right-4 flex gap-10'>
+        
+        <button
+          onClick={() => scrollHorizontally(-1)}
+          className="p-2 text-white bg-primary/10 rounded-full shadow-md"
+        >
+          &#8592; {/* Left Arrow Icon */}
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => scrollHorizontally(1)}
+          className=" p-2 text-white bg-primary/10 rounded-full shadow-md"
+        >
+          &#8594; {/* Right Arrow Icon */}
+        </button>
+        
+      </div>
+
+      </div>
+
       {/* Explore Store Button */}
-      <div className="flex justify-center my-12">
+      <div className="flex justify-center my-16">
         <Link
           href="/store"
           className="bg-white text-primary text-xl font-medium px-5 py-2 rounded-full shadow-lg"

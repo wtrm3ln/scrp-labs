@@ -3,31 +3,51 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Underline from './underline';
 import Circle from './circle';
-
-const MenuItem = ({ href, text, showUnderline = true }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className="flex flex-col items-center justify-center"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <a href={href} className="relative flex flex-col items-center justify-center">
-        {text}
-        {showUnderline && <Underline isVisible={isHovered} />}
-      </a>
-    </div>
-  );
-};
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isGetInTouchHovered, setIsGetInTouchHovered] = useState(false);
+  const router = useRouter();
+
+  const handleNavigation = (href) => {
+    if (href.startsWith("#")) {
+      // For in-page navigation
+      const sectionId = href.slice(1); // Remove the '#' to get the section ID
+      if (router.pathname === "/") {
+        // If already on the home page, scroll to the section
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // If not on the home page, navigate to it and scroll after rendering
+        router.push(`/#${sectionId}`);
+      }
+    } else {
+      // Navigate to other pages normally
+      router.push(href);
+    }
+  };
+
+  const MenuItem = ({ href, text, showUnderline = true }) => {
+    const [isHovered, setIsHovered] = useState(false);
+  
+    return (
+      <div
+        className="cursor-default flex flex-col items-center justify-center"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => handleNavigation(href)}
+      >
+        <p href={href} className={`relative flex flex-col items-center justify-center`}>
+          {text}
+          {showUnderline && <Underline isVisible={isHovered} />}
+        </p>
+      </div>
+    );
+  };
 
   const menuItems = [
     { href: "#services", text: "Services" },
-    { href: "/about", text: "About" },
+    { href: "#about", text: "About" },
     { href: "/store", text: "Store" },
     { href: "/projects", text: "Projects" },
   ];
@@ -47,7 +67,7 @@ const Navbar = () => {
         {/* Desktop Links */}
         <div className="hidden md:flex w-full justify-between items-center font-medium space-x-2">
           {menuItems.slice(0, 3).map((item, index) => (
-            <MenuItem key={index} {...item} />
+            <MenuItem key={index} {...item} />  
           ))}
           <a href="/" className="flex items-center">
             <Image src="/logo.svg" width={80} height={10} alt="Logo" />

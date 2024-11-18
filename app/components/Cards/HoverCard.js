@@ -11,7 +11,7 @@ const HoverCard = ({ tag, title, color, imageSrc, slug }) => {
           alt={title}
           layout="fill"
           objectFit="cover"
-          className="md:grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500 transform"
+          className="xl:grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500 transform"
         />
       </div>
 

@@ -10,7 +10,7 @@ export default async function Projects () {
     <div className="bg-[#484846] mt-24 text-white py-16 px-4 rounded-lg">
     
     <div className="text-center">
-            <p className="text-3xl mx-auto max-w-sm text-white font-delicious">We believe in collaborations that have a lasting impact!</p>
+            <p className="text-4xl mx-auto max-w-sm text-white font-delicious">We believe in collaborations that have a lasting impact!</p>
     </div>
 
     <div className="md:grid grid-cols-2 gap-12 p-2 md:p-12">
@@ -31,7 +31,7 @@ export default async function Projects () {
       {/* Note */}
 
       <div className="my-20 mx-auto flex flex-col items-center text-center max-w-3xl justify-center ">
-            <p className="text-xl text-white font-delicious">Your mind is unique & so are your ideas! Looking for something different exclusively made for you? <br></br><br></br>Ah- We love it!  Lets get started</p>
+            <p className="text-4xl text-white font-delicious">Your mind is unique & so are your ideas! Looking for something different exclusively made for you? <br></br><br></br>Ah- We love it!  Lets get started</p>
             <a className="bg-white text-primary text-xl mt-3 font-semibold px-5 py-2 rounded-full shadow-lg">
             Contact us
             </a>

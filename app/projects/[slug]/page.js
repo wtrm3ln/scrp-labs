@@ -97,10 +97,7 @@ export default async function ProjectPage({ params }) {
       </div>
 
       <div className="col-span-2 flex flex-col items-center justify-center my-12">
-      <div className="mt-20 flex text-center max-w-3xl justify-center -mb-10">
-            <p className="text-xl text-white font-delicious">Whoops! You&apos;ve reached  the end!</p>
-      </div>
-      <Image src="/utilities/scrollend.png" width={250} height={200}/>
+      <Image src="/utilities/scrollend.svg" width={400} height={200}/>
       </div>
 
     </div>
