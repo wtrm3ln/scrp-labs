@@ -23,7 +23,7 @@ const Showcase = ({ products }) => {
   const scrollHorizontally = (direction) => {
     const container = containerRef.current;
     if (container) {
-      const scrollAmount = container.offsetWidth; // Scroll by the visible width
+      const scrollAmount = window.innerWidth * 0.7; // Scroll by the visible width
       container.scrollBy({
         left: direction * scrollAmount,
         behavior: 'smooth',
