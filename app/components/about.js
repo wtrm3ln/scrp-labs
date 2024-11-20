@@ -10,21 +10,47 @@ import { StarsGroup1, StarsGroup2 } from './stars/starGroup';
 
 const ListItem = ({ text }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const pathRef = useRef(null);
+
+  // Use IntersectionObserver to detect visibility in the viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      { threshold: 1 } // Trigger when 50% of the list item is visible
+    );
+
+    if (pathRef.current) {
+      observer.observe(pathRef.current);
+    }
+
+    return () => {
+      if (pathRef.current) {
+        observer.unobserve(pathRef.current);
+      }
+    };
+  }, []);
 
   return (
     <li
-      className="flex flex-col"
+      className="md:text-2xl flex flex-col"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center">
-        <div className="w-4 h-0.5 bg-white mr-2" />
+        <div className="hidden md:block w-4 h-1 rounded-full  bg-white mr-2" />
         <span>
           {text.prefix}
           <div className="relative inline-block ml-1">
-            <strong className="font-bold">{text.strongText}</strong>
+            <strong className="font-bold whitespace-nowrap">{text.strongText}</strong>
             <div className={`absolute left-0 w-full ${isHovered ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
-              <WavyLine isVisible={isHovered} />
+              <WavyLine isVisible={isHovered || isVisible} />
             </div>
           </div>
         </span>
@@ -88,7 +114,7 @@ const About = () => {
         </div>
       </div>
 
-      <ul ref={aboutRef} className="my-6 space-y-4 text-lg cursor-default px-5 md:px-0 max-w-6xl mx-auto">
+      <ul ref={aboutRef} className="my-12 md:mb-32 space-y-12 text-lg cursor-default px-5 md:px-0 max-w-6xl mx-auto">
         {items.map((item, index) => (
         <ListItem key={index} text={item} />
       ))}
@@ -132,7 +158,7 @@ const About = () => {
         </div>
 
         <div>
-          <p className="text-2xl leading-8 font-medium mb-20 max-w-3xl mx-auto">SCRP is a <UnderlineText text={"Run-by-Designers creative kitchen. "} />
+          <p className="text-lg md:text-2xl md:leading-8 font-medium mb-20 max-w-3xl mx-auto">SCRP is a <UnderlineText text={"Run-by-Designers creative kitchen. "} />
              We love cooking creatives & products that are suited to your own unique identity. We believe in collaborations that have a lasting impact.
             <br /><br />We cater to a large array of design verticals right from customised <UnderlineText text={"3D Prints, Brand Identities to Creative Direction"} />for your brand  
           </p>

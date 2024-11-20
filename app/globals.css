@@ -58,7 +58,7 @@ body {
   width: 50px; /* Adjust size of stars */
   height: 50px;
   margin: 10px;
-  animation: rotate 10s steps(8) infinite;
+  animation: rotate 10s steps(10) infinite;
   /* The 'steps(1)' ensures the animation occurs in discrete steps */
 }
 
