@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import WavyLine from './waveLine';
+import Image from 'next/image';
 
 const LottiePlayer = ({ src, style }) => {
     useEffect(() => {
