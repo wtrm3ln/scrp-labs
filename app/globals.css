@@ -53,3 +53,31 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
+/* styles.css */
+.star {
+  width: 50px; /* Adjust size of stars */
+  height: 50px;
+  margin: 10px;
+  animation: rotate 10s steps(8) infinite;
+  /* The 'steps(1)' ensures the animation occurs in discrete steps */
+}
+
+/* Clockwise rotation */
+.rotate-clockwise {
+  animation-direction: normal;
+}
+
+/* Counterclockwise rotation */
+.rotate-counterclockwise {
+  animation-direction: reverse;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

@@ -1,9 +1,7 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import { Delicious_Handrawn, Montserrat } from 'next/font/google'
 import Footer from "./components/footer"
 import Navbar from './components/navbar'
-import Head from "next/head";
 
 const delicious = Delicious_Handrawn({
   weight: '400',
@@ -25,12 +23,11 @@ export const metadata = {
   description: "A new-age Creative Space run by young adults.",
 };
 
+export const revalidate = 60;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.11/bodymovin.min.js"></script>
-      </Head>
       <body
         className={`bg-primary ${montserrat.variable} ${delicious.variable} antialiased`}
       >

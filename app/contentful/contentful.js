@@ -11,7 +11,6 @@ export async function getProducts() {
       content_type: 'pageProduct',
       select: 'fields.name, fields.emoji, fields.description, fields.price, fields.slug, fields.featuredProductImage, fields.icon'
     });
-    console.log(entries.items)
     return entries.items;
   } catch (error) {
     console.error('Error fetching products:', error.response ? error.response.data : error);
@@ -25,7 +24,6 @@ export async function getProjects() {
       content_type: 'project',
       select: 'fields.projectName, fields.projectBrief, fields.slug, fields.projectImage, fields.tags'
     });
-    console.log(entries.items)
     return entries.items;
   } catch (error) {
     console.error('Error fetching projects:', error.response ? error.response.data : error);
@@ -69,7 +67,6 @@ export async function getAllCategories() {
       content_type: 'category', // Update this to the correct content type ID
       include: 2,               // Resolves references to the featured product
     });
-    console.log('Fetched category response:', response);
     return response.items.map(category => {
       // Extract category name and featured product image if available
       const categoryName = category.fields.name;
@@ -93,13 +90,11 @@ export async function getAllCategories() {
 
 export async function getCategoryEntries(categoryId) {
   try {
-    console.log('Fetching category entries for category ID:', categoryId);
     const entries = await client.getEntries({
       content_type: 'pageProduct',
       select: 'fields.name, fields.emoji, fields.price, fields.slug, fields.featuredProductImage',
       'fields.category.sys.id': categoryId,
     });
-    console.log('Fetched category entries:', entries);
     return entries.items;
   } catch (error) {
     console.error('Error fetching projects:', error);
