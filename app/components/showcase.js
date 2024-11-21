@@ -49,7 +49,11 @@ const Showcase = ({ products }) => {
 
   return (
     <div className="relative">
-      {/* Scattered Icons */}
+      {/* Horizontal Scrollable Section */}
+
+      <div className='relative'>
+
+        {/* Scattered Icons */}
       {products[currentCardIndex]?.fields.icon?.fields.file?.url && (
         <div
           className="absolute top-4 left-1/3 z-10"
@@ -78,7 +82,7 @@ const Showcase = ({ products }) => {
 
     {products[currentCardIndex]?.fields.icon?.fields.file?.url && (
             <div
-              className="absolute bottom-16 left-10 md:left-36 transform z-10"
+              className="absolute -bottom-8 left-10 md:left-36 transform z-10"
               style={getIconStyle(scrollProgress < 0.5, scrollProgress < 0.5)}
             >
               <img
@@ -91,7 +95,7 @@ const Showcase = ({ products }) => {
 
           {products[currentCardIndex + 1]?.fields.icon?.fields.file?.url && (
             <div
-              className="absolute bottom-16 left-10 md:left-36 transform z-10"
+              className="absolute -bottom-8 left-10 md:left-36 transform z-10"
               style={getIconStyle(scrollProgress >= 0.5, scrollProgress >= 0.5)}
             >
               <img
@@ -104,7 +108,7 @@ const Showcase = ({ products }) => {
 
     {products[currentCardIndex]?.fields.icon?.fields.file?.url && (
             <div
-              className="absolute bottom-16 left-2/3 transform -translate-x-1/2 z-10"
+              className="absolute -bottom-8 left-2/3 transform -translate-x-1/2 z-10"
               style={getIconStyle(scrollProgress < 0.5, scrollProgress < 0.5)}
             >
               <img
@@ -117,7 +121,7 @@ const Showcase = ({ products }) => {
 
           {products[currentCardIndex + 1]?.fields.icon?.fields.file?.url && (
             <div
-              className="absolute bottom-16 left-2/3 transform -translate-x-1/2 z-10"
+              className="absolute -bottom-8 left-2/3 transform -translate-x-1/2 z-10"
               style={getIconStyle(scrollProgress >= 0.5, scrollProgress >= 0.5)}
             >
               <img
@@ -128,9 +132,6 @@ const Showcase = ({ products }) => {
             </div>
           )}
 
-      {/* Horizontal Scrollable Section */}
-
-      <div className='relative'>
       <div
         ref={containerRef}
         className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory p-2 py-12 space-x-3 md:p-12 md:space-x-12 scroll-px-4 hide-scrollbar"
@@ -149,14 +150,15 @@ const Showcase = ({ products }) => {
             />
           </div>
         ))}
+      </div>      
       </div>
 
-      {/* Left Arrow */}
-      <div className='z-[11] absolute bg-dark rounded-full md:bottom-0 right-4 flex gap-10'>
-        
+      <div className='relative my-10'>
+      <div className='z-[11] absolute bg-dark/70 rounded-full bottom-0 right-4 flex gap-5'>
+        {/* Left Arrow */}
         <button
           onClick={() => scrollHorizontally(-1)}
-          className="p-2 text-white bg-primary/10 rounded-full shadow-md"
+          className="p-2 text-white bg-dark/80 rounded-full shadow-md"
         >
           &#8592; {/* Left Arrow Icon */}
         </button>
@@ -164,7 +166,7 @@ const Showcase = ({ products }) => {
         {/* Right Arrow */}
         <button
           onClick={() => scrollHorizontally(1)}
-          className=" p-2 text-white bg-primary/10 rounded-full shadow-md"
+          className=" p-2 text-white bg-dark/80 rounded-full shadow-md"
         >
           &#8594; {/* Right Arrow Icon */}
         </button>
@@ -172,6 +174,7 @@ const Showcase = ({ products }) => {
       </div>
 
       </div>
+
 
       {/* Explore Store Button */}
       <div className="flex justify-center my-16">

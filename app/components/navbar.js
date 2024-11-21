@@ -57,7 +57,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="text-white fixed bg-primary z-[99] top-0 left-0 right-0">
+    <nav className="text-white fixed bg-primary z-[99] w-screen top-0 left-0 right-0">
       <div className="container max-w-[90vw] py-2 md:py-0 md:max-w-4xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <a href="/" className="flex items-center md:hidden">

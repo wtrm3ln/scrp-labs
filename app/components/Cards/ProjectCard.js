@@ -5,7 +5,7 @@ const ProjectCard = ({ name, brief, imageSrc, tags, slug }) => {
   return (
     <Link href={`/projects/${slug}`} className="relative p-1 group">
       {/* Image Section */}
-      <div className="relative w-full h-64 overflow-hidden rounded-lg">
+      <div className="relative w-full h-[50vh] overflow-hidden rounded-lg">
         <Image
           src={imageSrc}
           alt={name}
@@ -13,17 +13,8 @@ const ProjectCard = ({ name, brief, imageSrc, tags, slug }) => {
           objectFit="cover"
           className="transform transition-transform duration-300 group-hover:scale-105"
         />
-      </div>
-
-      {/* Product Details */}
-      <div className="mt-4 font-medium text-white">
-        <h3 className="text-lg">{name}</h3>
-        <p className="text-xl mt-1">{brief}</p>
-      </div>
-
-      {/* Tags Section */}
-      {tags?.length > 0 && (
-        <div className="flex flex-wrap gap-2 mt-2">
+        {tags?.length > 0 && (
+        <div className="absolute bottom-0 right-0 p-2 flex flex-wrap gap-2 mt-2">
           {tags.map((tag, index) => (
             <span
               key={index}
@@ -34,6 +25,13 @@ const ProjectCard = ({ name, brief, imageSrc, tags, slug }) => {
           ))}
         </div>
       )}
+      </div>
+
+      {/* Product Details */}
+      <div className="mt-4 font-medium text-white">
+        <h3 className="md:text-4xl opacity-90">{name}</h3>
+        <p className="text-xl mt-1">{brief}</p>
+      </div>
 
     </Link>
   );

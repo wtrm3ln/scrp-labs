@@ -3,6 +3,33 @@
 import { useRef, useEffect, useState } from "react";
 import Image from 'next/image';
 
+const LottiePlayer = ({ src, style }) => {
+  useEffect(() => {
+    // Dynamically load the lottie-player Web Component script
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@lottiefiles/lottie-player';
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Cleanup the script when the component unmounts
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
+  return (
+    <lottie-player
+      autoplay
+      loop
+      mode="normal"
+      src={src}
+      style={style}
+    ></lottie-player>
+  );
+};
+
 const Tick = () => {
     const pathRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -66,7 +93,14 @@ const Tick = () => {
       <div
         className="text-center flex font-delicious  flex-col justify-center items-center my-12">
         <div className="flex items-center justify-center mb-2">
-          <Image src={imageSrc} width="150" height="50" />
+        {imageSrc.endsWith('.json') ? (
+            <LottiePlayer
+            src={imageSrc}
+            style={{ width: '300px', height: '200px' }}
+          />
+          ) : (
+            <Image src={imageSrc} alt={text} width={150} height={50} /> // Adjust dimensions as needed
+          )}
         </div>
   
         <div className="relative inline-block w-full mb-3">
@@ -81,9 +115,9 @@ const Tick = () => {
 const Booking = () => {
 
   const order = [
-    { text: "Click on Shop Now" , subtext: "You will be re-directed to your Whatsapp", imageSrc: '/order/1.png'},
-    { text: "Finalise your Order", subtext: "Chat with us to customize and confirm your order", imageSrc: '/order/2.png' },
-    { text: "Recieve your Order", subtext: "We ship as soon as possible! Happy Shopping!", imageSrc: '/order/3.png' }
+    { text: "Click on Shop Now" , subtext: "You will be re-directed to your Whatsapp", imageSrc: '/order/1.json'},
+    { text: "Finalise your Order", subtext: "Chat with us to customize and confirm your order", imageSrc: '/order/2.json' },
+    { text: "Recieve your Order", subtext: "We ship as soon as possible! Happy Shopping!", imageSrc: '/order/3.json' }
 ];
 
   return (

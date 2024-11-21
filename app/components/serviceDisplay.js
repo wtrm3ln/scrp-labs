@@ -1,33 +1,7 @@
 import { useState, useEffect } from 'react';
 import WavyLine from './waveLine';
 import Image from 'next/image';
-
-const LottiePlayer = ({ src, style }) => {
-    useEffect(() => {
-      // Dynamically load the lottie-player Web Component script
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/@lottiefiles/lottie-player';
-      script.defer = true;
-      document.body.appendChild(script);
-  
-      // Cleanup the script when the component unmounts
-      return () => {
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
-        }
-      };
-    }, []);
-  
-    return (
-      <lottie-player
-        autoplay
-        loop
-        mode="normal"
-        src={src}
-        style={style}
-      ></lottie-player>
-    );
-  };
+import LottiePlayer from './lottiePlayer';
 
 const ServicesDisplay = ({ imageSrc, text, subtext }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -51,6 +25,8 @@ const ServicesDisplay = ({ imageSrc, text, subtext }) => {
             <LottiePlayer
             src={imageSrc}
             style={{ width: '300px', height: '200px' }}
+            autoplay={true}
+            loop={true}
           />
           ) : (
             <Image src={imageSrc} alt={text} width={150} height={150} /> // Adjust dimensions as needed
