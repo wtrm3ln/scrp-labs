@@ -5,7 +5,7 @@ import LottiePlayer from './lottiePlayer';
 
 const Hero = () => {
     return (
-      <div className="min-h-2/3 md:min-h-screen relative flex justify-center items-center p-4 overflow-hidden">
+      <div className="h-2/3 md:min-h-screen relative flex justify-center items-center p-4 overflow-hidden">
 
         <Spline className='hidden lg:block absolute inset-0 z-[9]'
           scene="https://prod.spline.design/Y0ZooapxnReh45D3/scene.splinecode"
@@ -27,7 +27,7 @@ const Hero = () => {
         </div>
 
         
-        <div className='absolute md:inset-0 z-[6] flex justify-center items-end space-x-[200px] md:space-x-[800px]'
+        <div className='absolute md:inset-0 z-[8] flex justify-center items-end space-x-[200px] md:space-x-[800px]'
         >
           <div></div>
           <LottiePlayer 
