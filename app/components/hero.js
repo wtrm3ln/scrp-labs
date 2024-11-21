@@ -5,7 +5,7 @@ import LottiePlayer from './lottiePlayer';
 
 const Hero = () => {
     return (
-      <div className="h-2/3 md:min-h-screen relative flex justify-center items-center p-4 overflow-hidden">
+      <div className="min-h-2/3 w-full md:min-h-screen relative flex justify-center items-center p-4 overflow-x-hidden">
 
         <Spline className='hidden lg:block absolute inset-0 z-[9]'
           scene="https://prod.spline.design/Y0ZooapxnReh45D3/scene.splinecode"
@@ -17,17 +17,17 @@ const Hero = () => {
         />
         </div>
 
-        <div className='absolute inset-0 z-[7] max-w-screen flex justify-center items-center'>
+        
         <Image 
-        width={0} // Placeholder width (next/image requires a value)
-        height={0} // Placeholder height
-        style={{ width: "100%", height: "auto" }}
           src="/herobg.svg"
+          fill // Ensures the image fills the container
+          className="absolute inset-0 z-[7] object-contain w-auto md:h-auto md:w-full"
+          alt="Hero Background"
         />
-        </div>
+      
 
         
-        <div className='absolute md:inset-0 z-[8] flex justify-center items-end space-x-[200px] md:space-x-[800px]'
+        <div className='md:absolute md:inset-0 z-[8] flex justify-center items-end space-x-[200px] md:space-x-[800px]'
         >
           <div></div>
           <LottiePlayer 
