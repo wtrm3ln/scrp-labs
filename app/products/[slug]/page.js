@@ -40,9 +40,9 @@ export default async function Page({ params }) {
 
   return (
     <div className='text-xl bg-dark pt-6'>
-      <div className="mt-36 flex justify-between items-center p-2 md:p-12">
+      <div className="mt-36 hidden md:flex justify-between items-center p-2 md:p-12">
 
-        <Link href="/store" className="hidden md:flex flex-col items-center">
+        <Link href="/store" className="flex flex-col items-center">
           <Image src="/utilities/back.svg" width={50} height={200}/>
         <p className="text-xl rotate-2 text-white font-medium">Back</p>
         </Link>
@@ -83,6 +83,7 @@ export default async function Page({ params }) {
 
       <div className='flex flex-col md:px-6 text-white'>
         <div className='col-span-2 mb-6'>
+        <h1 className='md:hidden text-white text-5xl font-delicious mb-2'>{emoji}{name}</h1>
           {/* Name and Tagline */}
           <h2 className='text-md text-gray-600 mb-4'>{tagline}</h2>
 
