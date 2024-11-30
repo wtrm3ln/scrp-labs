@@ -39,7 +39,7 @@ export default async function Page({ params }) {
 
 
   return (
-    <div className='text-xl bg-dark pt-24'>
+    <div className='text-xl bg-dark pt-6'>
       <div className="mt-36 flex justify-between items-center p-2 md:p-12">
 
         <Link href="/store" className="hidden md:flex flex-col items-center">
