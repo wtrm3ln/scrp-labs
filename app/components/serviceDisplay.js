@@ -32,7 +32,9 @@ const ServicesDisplay = ({ imageSrc, text, subtext }) => {
             <Image src={imageSrc} alt={text} width={150} height={150} /> // Adjust dimensions as needed
           )}
         </div>
-  
+
+        <div className='w-[70vw] md:w-full flex flex-col justify-center items-center'>
+
         <div className="relative inline-block w-full mb-3">
           <strong className="md:w-48 font-delicious text-3xl">{text}</strong>
           <div
@@ -45,6 +47,8 @@ const ServicesDisplay = ({ imageSrc, text, subtext }) => {
         </div>
   
         <p className="md:w-64">{subtext}</p>
+
+        </div>
       </div>
     );
   };

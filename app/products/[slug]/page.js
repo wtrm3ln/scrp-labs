@@ -1,6 +1,7 @@
 import { getProducts, getProductBySlug } from '../../contentful/contentful';
 import Image from 'next/image';
 import Booking from './booking';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   const products = await getProducts();
@@ -39,6 +40,19 @@ export default async function Page({ params }) {
 
   return (
     <div className='text-xl bg-dark pt-24'>
+      <div className="mt-36 flex justify-between items-center p-2 md:p-12">
+
+        <Link href="/store" className="hidden md:flex flex-col items-center">
+          <Image src="/utilities/back.svg" width={50} height={200}/>
+        <p className="text-xl rotate-2 text-white font-medium">Back</p>
+        </Link>
+
+        <h1 className='text-white text-5xl font-delicious mb-2'>{emoji}{name}</h1>
+
+        <div>
+        </div>
+
+        </div>
   
   {/* Featured Image */}
   <div className='mx-2 md:mx-12'>
@@ -70,7 +84,6 @@ export default async function Page({ params }) {
       <div className='flex flex-col md:px-6 text-white'>
         <div className='col-span-2 mb-6'>
           {/* Name and Tagline */}
-          <h1 className='text-5xl font-delicious mb-2'>{emoji}{name}</h1>
           <h2 className='text-md text-gray-600 mb-4'>{tagline}</h2>
 
           {/* Description and Price */}

@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -18,15 +18,11 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Mail size={16} className="mr-2" />
-                <span>info@example.com</span>
+                <span>scrp.labs@gmail.com</span>
               </li>
               <li className="flex items-center">
                 <Phone size={16} className="mr-2" />
-                <span>+1 (123) 456-7890</span>
-              </li>
-              <li className="flex items-center">
-                <MapPin size={16} className="mr-2" />
-                <span>123 Street Name, City, Country</span>
+                <span>+91 </span>
               </li>
             </ul>
 
@@ -60,9 +56,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className='flex justify-center bg-dark text-white'>
-        Crafted & Coded by Shaurya
-        </div>
+      <a href='https://stilllifedesign.in/' target='_blank' rel='noopener noreferrer' className='flex justify-center bg-dark text-white'>
+        Made by Still/Life Design Studio
+        </a>
 
       </footer>
     );

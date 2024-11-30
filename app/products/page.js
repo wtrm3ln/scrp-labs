@@ -15,7 +15,7 @@ export default async function Store () {
           <p className="text-xl rotate-2 text-white font-medium">Back</p>
           </Link>
 
-          <p className="text-4xl rotate-2 text-center w-full text-white font-delicious">Here is everything we have</p>
+          <p className="text-5xl rotate-2 text-center w-full text-white font-delicious">Here is everything we have</p>
 
           <div>
           </div>
@@ -36,7 +36,7 @@ export default async function Store () {
       ))}
       
       <div className="col-span-2 flex flex-col items-center justify-center my-12">
-      <Image src="/utilities/scrollend.svg" width={400} height={200}/>
+      <Image src="/utilities/scrollend.svg" width={600} height={200}/>
       </div>
     </div>
 

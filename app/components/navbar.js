@@ -46,8 +46,8 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { href: "#services", text: "Services" },
     { href: "#about", text: "About" },
+    { href: "#services", text: "Services" },
     { href: "/store", text: "Store" },
     { href: "/projects", text: "Projects" },
   ];
@@ -65,27 +65,38 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex w-full justify-between items-center font-medium space-x-2">
-          {menuItems.slice(0, 3).map((item, index) => (
-            <MenuItem key={index} {...item} />  
-          ))}
-          <a href="/" className="flex items-center">
-            <Image src="/logo.svg" width={80} height={10} alt="Logo" />
-          </a>
-          {menuItems.slice(3).map((item, index) => (
-            <MenuItem key={index + 3} {...item} />
-          ))}
-          <a 
-            href='/contact' 
-            className="relative p-6"
-            onMouseEnter={() => setIsGetInTouchHovered(true)}
-            onMouseLeave={() => setIsGetInTouchHovered(false)}
-          >
-            Get in Touch
-            <div className='absolute inset-0'>
-              <Circle isVisible={isGetInTouchHovered}/>
-            </div>
-          </a>
+        <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center w-full font-medium space-x-10">
+
+        <div className="flex justify-end items-center space-x-10">
+                {menuItems.slice(0, 3).map((item, index) => (
+                  <MenuItem key={index} {...item} />
+                ))}
+              </div>
+
+          {/* Center Logo */}
+          <div className="flex justify-center items-center pointer-events-none">
+            <a href="/" className="flex items-center">
+              <Image src="/logo.svg" width={80} height={10} alt="Logo" />
+            </a>
+          </div>
+
+          {/* Right Menu Items */}
+          <div className="flex justify-start items-center space-x-10">
+            {menuItems.slice(3).map((item, index) => (
+              <MenuItem key={index + 3} {...item} />
+            ))}
+            <a
+              href="/contact"
+              className="relative p-6 whitespace-nowrap"
+              onMouseEnter={() => setIsGetInTouchHovered(true)}
+              onMouseLeave={() => setIsGetInTouchHovered(false)}
+            >
+              Get in Touch
+              <div className="absolute inset-0">
+                <Circle isVisible={isGetInTouchHovered} />
+              </div>
+            </a>
+          </div>
         </div>
 
         {/* Mobile Button and "Get in touch" */}

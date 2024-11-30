@@ -12,7 +12,7 @@ const UnderlineText = ({ text , thickness}) => {
       > 
         <span className="relative inline-block ml-1 cursor-default">
             <strong className="font-bold mr-2">{text}</strong>
-            <div className={`absolute left-0 w-full ${isHovered ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
+            <div className={`absolute -mt-1 left-0 w-full ${isHovered ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
             <WavyLine isVisible={isHovered} thickness={thickness}/>
             </div>
         </span>

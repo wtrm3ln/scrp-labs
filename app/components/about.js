@@ -144,7 +144,7 @@ const About = () => {
 
         <p className="text-3xl font-medium">What do we do?</p>
 
-        <div className="relative flex items-center justify-center mt-6 mb-36">
+        <div className="relative flex items-center justify-center mt-20 md:mt-6 mb-36">
           <StarsGroup1 />
 
           <h2 

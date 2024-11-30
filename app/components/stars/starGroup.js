@@ -13,8 +13,8 @@ const StarsGroup2 = () => {
   return (
     <div className="stars-group relative h-full w-10">
       <Star src="star3.svg" className="rotate-clockwise right-4 md:right-auto md:left-10" />
-      <Star src="star4.svg" className="rotate-counterclockwise top-16" />
-      <Star src="star5.svg" className="rotate-clockwise bottom-10 md:right-8" />
+      <Star src="star4.svg" className="rotate-counterclockwise top-10 md:top-16" />
+      <Star src="star5.svg" className="rotate-clockwise bottom-4 md:bottom-10 md:right-8" />
     </div>
   );
 };
