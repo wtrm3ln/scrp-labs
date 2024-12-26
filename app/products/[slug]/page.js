@@ -39,8 +39,8 @@ export default async function Page({ params }) {
 
 
   return (
-    <div className='text-xl bg-dark pt-6'>
-      <div className="mt-36 hidden md:flex justify-between items-center p-2 md:p-12">
+    <div className='text-xl bg-dark pt-12'>
+      <div className="hidden md:flex justify-between items-center p-2 md:p-12">
 
         <Link href="/store" className="flex flex-col items-center">
           <Image src="/utilities/back.svg" width={50} height={200}/>
@@ -52,7 +52,7 @@ export default async function Page({ params }) {
         <div>
         </div>
 
-        </div>
+      </div>
   
   {/* Featured Image */}
   <div className='mx-2 md:mx-12'>

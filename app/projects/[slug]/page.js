@@ -59,7 +59,7 @@ export default async function ProjectPage({ params }) {
   return (
     <div className="bg-[#484846] rounded-t-lg mt-24 pb-24 p-6">
 
-        <div className="flex justify-between items-center p-12">
+        <div className="flex justify-between items-center md:p-12">
 
         <Link href="/projects" className="flex flex-col items-center">
         <Image src="/utilities/back.svg" width={50} height={200}/>

@@ -7,8 +7,8 @@ const Hero = () => {
     return (
       <div className="min-h-2/3 w-full md:min-h-screen relative flex justify-center items-center p-4 overflow-x-hidden">
 
-        <Spline className='hidden lg:block absolute inset-0 z-[9]'
-          scene="https://prod.spline.design/Y0ZooapxnReh45D3/scene.splinecode"
+        <Spline className='hidden lg:block absolute h-screen inset-0 z-[9]'
+          scene="https://prod.spline.design/LtN7jITTwsRVKaT4/scene.splinecode"
         />
 
         <div className='lg:hidden absolute inset-0 z-[9] flex justify-center items-center'>

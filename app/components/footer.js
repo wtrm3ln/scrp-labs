@@ -6,8 +6,8 @@ const Footer = () => {
 
         <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Company Info */}
-          <div className='md:col-span-2 flex items-center justify-center'>
+
+          <div className='hidden md:flex md:col-span-2 flex items-center justify-center'>
             <h3 className="text-5xl md:text-[150px] whitespace-nowrap text-white font-delicious">Scrp Labs</h3>
           </div>
 

@@ -76,6 +76,7 @@ const Tick = () => {
         viewBox="0 0 76 47"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="hidden md:block"
       >
         <path
           ref={pathRef}
@@ -163,7 +164,7 @@ const Booking = () => {
             ))}
             </div>
 
-        <div className='flex items-center gap-3 '>
+        <div className='md:flex items-center gap-3 '>
         <p>Pan India Delivery from the City of Dreams -</p>
         <Image src='/mumbai2.png' width='150' height='10'/>
         </div>

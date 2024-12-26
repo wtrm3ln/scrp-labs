@@ -108,7 +108,7 @@ const Showcase = ({ products }) => {
 
     {products[currentCardIndex]?.fields.icon?.fields.file?.url && (
             <div
-              className="absolute -bottom-8 left-2/3 transform -translate-x-1/2 z-10"
+              className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10"
               style={getIconStyle(scrollProgress < 0.5, scrollProgress < 0.5)}
             >
               <img
@@ -121,7 +121,7 @@ const Showcase = ({ products }) => {
 
           {products[currentCardIndex + 1]?.fields.icon?.fields.file?.url && (
             <div
-              className="absolute -bottom-8 left-2/3 transform -translate-x-1/2 z-10"
+              className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10"
               style={getIconStyle(scrollProgress >= 0.5, scrollProgress >= 0.5)}
             >
               <img
@@ -139,7 +139,7 @@ const Showcase = ({ products }) => {
         {products.map((product, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[90vw] md:w-[70vw] h-[60vh] xl:h-[80vh] snap-center"
+            className="flex-shrink-0 w-[90vw] md:w-[60vw] h-[60vh] xl:h-[70vh] snap-start"
           >
             <ShowcaseCard
               tag={product.fields.tagline || 'Shop now'}
