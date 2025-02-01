@@ -63,7 +63,7 @@ export default async function Page({ params }) {
         alt={name}
         width={featuredProductImage.fields.file.details.image.width}
         height={featuredProductImage.fields.file.details.image.height}
-        className="rounded-lg md:rounded-3xl object-cover md:h-[70vh] "
+        className="rounded-lg md:rounded-3xl object-cover md:h-[70vh] w-full"
       />
 
       <div className='grid bg-white/10 rounded-xl p-2 grid-cols-4 gap-1 my-1 md:my-3 md:gap-3'>

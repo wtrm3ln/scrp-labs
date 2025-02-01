@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import ShowcaseCard from './Cards/ShowcaseCard';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Showcase = ({ products }) => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -52,6 +53,27 @@ const Showcase = ({ products }) => {
       {/* Horizontal Scrollable Section */}
 
       <div className='relative'>
+
+      <div className='absolute inset-0'>
+          <div className='absolute inset-0 flex justify-between'>
+            {/* Left Arrow */}
+            <button
+              onClick={() => scrollHorizontally(-1)}
+              className="p-2 z-[10] bg-gradient-to-r from-dark/50 to-dark/20"
+            >
+              <Image src="/toggle.svg" width="30" height="30" className='rotate-180'/>
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={() => scrollHorizontally(1)}
+              className=" p-2 z-[10] bg-gradient-to-l from-dark/50 to-dark/20"
+            >
+              <Image src="/toggle.svg" width="30" height="30"/>
+            </button>
+            
+          </div>
+        </div>
 
         {/* Scattered Icons */}
       {products[currentCardIndex]?.fields.icon?.fields.file?.url && (
@@ -132,14 +154,16 @@ const Showcase = ({ products }) => {
             </div>
           )}
 
+      
       <div
         ref={containerRef}
-        className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory p-2 py-12 space-x-3 md:p-12 md:space-x-12 scroll-px-4 hide-scrollbar"
+        className="relative z-[9] flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory p-2 py-12 space-x-3 md:p-12 md:space-x-12 scroll-px-4 hide-scrollbar md:pr-[300px]"
       >
+
         {products.map((product, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[90vw] md:w-[60vw] h-[60vh] xl:h-[70vh] snap-start"
+            className="flex-shrink-0 z-[7] w-[90vw] md:w-[60vw] h-[60vh] xl:h-[70vh] snap-start"
           >
             <ShowcaseCard
               tag={product.fields.tagline || 'Shop now'}
@@ -151,28 +175,6 @@ const Showcase = ({ products }) => {
           </div>
         ))}
       </div>      
-      </div>
-
-      <div className='relative my-10'>
-      <div className='z-[11] absolute bg-dark/70 rounded-full bottom-0 right-4 flex gap-5'>
-        {/* Left Arrow */}
-        <button
-          onClick={() => scrollHorizontally(-1)}
-          className="p-2 text-white bg-dark/80 rounded-full shadow-md"
-        >
-          &#8592; {/* Left Arrow Icon */}
-        </button>
-
-        {/* Right Arrow */}
-        <button
-          onClick={() => scrollHorizontally(1)}
-          className=" p-2 text-white bg-dark/80 rounded-full shadow-md"
-        >
-          &#8594; {/* Right Arrow Icon */}
-        </button>
-        
-      </div>
-
       </div>
 
 

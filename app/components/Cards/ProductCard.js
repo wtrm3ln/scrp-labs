@@ -16,9 +16,9 @@ const ProductCard = ({ emoji, productName, price, imageSrc, slug }) => {
       </div>
 
       {/* Product Details */}
-      <div className="mt-2 text-2xl font-medium md:flex justify-between items-end gap-6">
+      <div className="mt-2 text-2xl font-medium gap-6">
         <span className='flex md:text-3xl'><span>{emoji}</span><h3 className="opacity-90">{productName}</h3></span>
-        <p className="text-2xl md:mt-1 font-mono whitespace-nowrap">Rs. {price}.00</p>
+        <p className="text-xl md:mt-1 whitespace-nowrap">₹ {price}.00</p>
       </div>
     </Link>
   );

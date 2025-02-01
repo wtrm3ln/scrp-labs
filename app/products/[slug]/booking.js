@@ -31,45 +31,50 @@ const LottiePlayer = ({ src, style }) => {
 };
 
 const Tick = () => {
-    const pathRef = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
-  
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        },
-        { threshold: 0.5 } // Trigger when 50% of the SVG is visible
-      );
-  
-      if (pathRef.current) {
-        observer.observe(pathRef.current);
-      }
-  
-      return () => {
-        if (pathRef.current) {
-          observer.unobserve(pathRef.current);
+  const pathRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
         }
-      };
-    }, []);
-  
-    useEffect(() => {
-      const path = pathRef.current;
-      if (path) {
-        const length = path.getTotalLength();
-  
-        // Set initial dash properties
-        path.style.strokeDasharray = length;
-        path.style.strokeDashoffset = isVisible ? "0" : length;
-  
-        // Add transition for the animation
-        path.style.transition = isVisible ? "stroke-dashoffset 0.7s ease-out" : "none";
+      },
+      {
+        threshold: 0.5,
+        rootMargin: '-20% 0px 0px 0px' // Only trigger in top half of viewport
       }
-    }, [isVisible]);
-  
-    return (
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const path = pathRef.current;
+    if (path) {
+      const length = path.getTotalLength();
+
+      // Set initial dash properties
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = isVisible ? "0" : length;
+
+      // Add transition for the animation
+      path.style.transition = isVisible ? "stroke-dashoffset 0.7s ease-out" : "none";
+    }
+  }, [isVisible]);
+
+  return (
+    <div ref={containerRef}>
       <svg
         width="30"
         height="47"
@@ -86,8 +91,9 @@ const Tick = () => {
           strokeLinecap="round"
         />
       </svg>
-    );
-  };
+    </div>
+  );
+};
   
   const OrderDisplay = ({ imageSrc, text, subtext }) => {
     return (
@@ -124,18 +130,18 @@ const Booking = () => {
   return (
     <div className="space-y-8">
       <ol>
-        <li className="flex items-center gap-3">
+        <li className="flex items-center gap-3 mb-5">
           <Tick />
           Multiple Colour Options
         </li>
-        <li className="flex items-center gap-3">
+        <li className="flex items-center gap-3 mb-5">
           <Tick />
           Customisable
         </li>
-        <li className="md:flex items-center gap-3">
+        <li className="md:flex items-center gap-3 mb-5">
           <Tick />
           This item is non-refundable.
-          <br />
+          <br/>
           However, we do replace defects only with start-to-end unboxing videos
           given under 24 hours after the delivery
         </li>

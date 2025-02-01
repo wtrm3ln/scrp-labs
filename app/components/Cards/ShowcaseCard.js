@@ -14,8 +14,8 @@ const ShowcaseCard = ({ tag, title, color, imageSrc, slug }) => {
       />
 
         <div className="absolute bottom-2 w-full flex justify-center">
-        <Link href={`/products/${slug}`} className="bg-primary rounded-full text-white px-2 py-1 inline-block mb-2">
-          Shop now
+        <Link href={`/products/${slug}`} className="bg-primary rounded-full drop-shadow-md text-2xl text-white px-6 py-2 inline-block mb-2">
+          <p>Shop now</p>
         </Link>
         </div>
 
