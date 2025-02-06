@@ -74,7 +74,9 @@ const Navbar = () => {
         </div>
 
           {/* Center Logo */}
-          <Image src="/logo.svg" width={80} height={10} alt="Logo" />
+          <a href="/" className="flex items-center">
+              <Image src="/logo.svg" width={80} height={10} alt="Logo" />
+          </a>
 
           {/* Right Menu Items */}
           <div className="flex justify-start items-center space-x-10">
