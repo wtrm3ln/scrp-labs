@@ -39,7 +39,7 @@ export default async function Page({ params }) {
 
 
   return (
-    <div className='text-xl bg-dark pt-12'>
+    <div className='text-xl bg-dark pt-20 md:pt-12'>
       <div className="hidden md:flex justify-between items-center p-2 md:p-12">
 
         <Link href="/store" className="flex flex-col items-center">
@@ -89,9 +89,9 @@ export default async function Page({ params }) {
 
           {/* Description and Price */}
           <p className='mb-4 text-[17px]'>{description}</p>
-          <div className='flex items-end gap-3 justify-between'>
-          <p className="text-4xl mt-1 font-mono whitespace-nowrap">Rs. {price}.00</p>
-          <a className='bg-white text-primary font-bold p-2 rounded-full'>Shop Now</a>
+          <div>
+          <p className="text-4xl mt-1 font-mono whitespace-nowrap mb-6">Rs. {price}.00</p>
+          <a className='bg-white text-primary font-bold p-2 px-4 rounded-full'>Shop Now</a>
           </div>
         </div>
       </div>

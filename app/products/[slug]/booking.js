@@ -74,14 +74,13 @@ const Tick = () => {
   }, [isVisible]);
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className="hidden md:block">
       <svg
         width="30"
         height="47"
         viewBox="0 0 76 47"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="hidden md:block"
       >
         <path
           ref={pathRef}
@@ -129,23 +128,27 @@ const Booking = () => {
 
   return (
     <div className="space-y-8">
-      <ol>
-        <li className="flex items-center gap-3 mb-5">
+      <ol className="space-y-4 text-sm md:text-lg md:bg-white/10 md:px-6 md:py-3 rounded-xl">
+        <li className="flex items-center gap-4 mb-4 text-gray-300 leading-relaxed bg-white/10 md:bg-transparent p-4 md:p-0 rounded-lg">
           <Tick />
-          Multiple Colour Options
+          <span>Multiple Colour Options</span>
         </li>
-        <li className="flex items-center gap-3 mb-5">
+        <li className="flex items-center gap-4 mb-4 text-gray-300 leading-relaxed bg-white/10 md:bg-transparent p-4 md:p-0 rounded-lg">
           <Tick />
-          Customisable
+          <span>Customisable</span>
         </li>
-        <li className="md:flex items-center gap-3 mb-5">
+        <li className="relative flex flex-col md:flex-row md:items-center gap-4 mb-4 text-gray-300 leading-relaxed bg-white/10 md:bg-transparent p-4 md:p-0 rounded-lg">
           <Tick />
-          This item is non-refundable.
-          <br/>
-          However, we do replace defects only with start-to-end unboxing videos
-          given under 24 hours after the delivery
+          <span>
+            <strong className="font-semibold text-primary">This item is non-refundable.</strong>
+            <br className="hidden md:block"/>
+            However, we do replace defects only with 
+            <strong className="font-semibold text-primary"> start-to-end unboxing videos </strong> 
+            given within 24 hours after the delivery.
+          </span>
         </li>
       </ol>
+
 
         <p>Our shopping process is slightly different!</p> 
 

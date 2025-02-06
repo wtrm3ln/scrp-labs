@@ -65,20 +65,16 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center w-full font-medium space-x-10">
+        <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center w-full font-medium gap-10">
 
         <div className="flex justify-end items-center space-x-10">
                 {menuItems.slice(0, 3).map((item, index) => (
                   <MenuItem key={index} {...item} />
                 ))}
-              </div>
+        </div>
 
           {/* Center Logo */}
-          <div className="flex justify-center items-center">
-            <a href="/" className="flex items-center">
-              <Image src="/logo.svg" width={80} height={10} alt="Logo" />
-            </a>
-          </div>
+          <Image src="/logo.svg" width={80} height={10} alt="Logo" />
 
           {/* Right Menu Items */}
           <div className="flex justify-start items-center space-x-10">
